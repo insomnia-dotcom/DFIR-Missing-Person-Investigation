@@ -1,0 +1,58 @@
+# DIGITAL FORENSIC INVESTIGATION LOG
+
+**Case ID:** DF-2026-001
+
+**Case Name:** The Last Digital Footprint
+
+**Classification:** Missing Person — Simulated Criminal Investigation
+
+**Examiner:** [Examiner name or alias]
+
+**Date Started:** November 15, 2026
+
+## Case Background
+
+Elena Morales, a fictional 27-year-old woman, was reported missing on November 8, 2026. Investigators recovered a laptop from her residence that may contain information relevant to her disappearance.
+
+## Investigation Objectives
+
+- Identify the subject's last known digital activity.
+- Examine files, browser artifacts, and photograph metadata.
+- Recover potentially relevant deleted files.
+- Reconstruct a timeline of events.
+- Maintain evidence integrity throughout the examination.
+
+## Workstation Preparation
+
+- Installed Autopsy.
+- Installed FTK Imager.
+- Configured ExifTool.
+- Created the investigation directory structure.
+
+## Evidence Inventory
+
+Evidence ID: E001
+
+Description: Simulated laptop forensic image.
+
+Status: Pending receipt.
+
+SHA-256: Pending verification.
+
+## Disclaimer
+
+This investigation is a fictional digital forensics training exercise. All individuals, events, and associated evidence are simulated for educational purposes.
+
+## Evidence Verification — November 15, 2026
+
+Evidence E001 was received and extracted into the designated evidence directory.
+
+The original forensic image was verified using SHA-256. The calculated hash matched the supplied reference hash.
+
+A working copy, E001-elena-working.dd, was created and independently hashed. Its SHA-256 hash matched the original evidence.
+
+Both verification checks returned True.
+
+The original evidence remains stored separately from the working copy. A verification record was saved in the hashes directory as E001-verification.txt.
+
+Status: Evidence verified and ready for forensic examination.
