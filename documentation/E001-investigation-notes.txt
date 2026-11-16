@@ -1,0 +1,404 @@
+
+
+Finding 001 – Personal Notes
+
+INVESTIGATION NOTES
+
+Case ID: DF-2026-001
+Case Name: Missing Person Investigation – Elena Morales
+Evidence ID: E001
+Tool: Autopsy 4.23.1
+
+---
+
+**Finding 001 – Personal Notes**
+
+Source File: NOTES.TXT
+
+File Path: /NOTES.TXT
+
+Modified Timestamp: 2026-11-06 21:12:00 CST
+
+Observed Content:
+Friday: pick up library books. Saturday: meet R at the old station cafe, 6:30 PM. Bring the blue folder. Tell Sofia after I know more.
+
+Relevant Names:
+- R (identity unknown)
+- Sofia
+
+Relevant Locations:
+- Old station cafe
+- Library (unspecified)
+
+Relevant Dates and Times:
+- Friday, November 6, 2026 (inferred)
+- Saturday, November 7, 2026, at 6:30 PM (inferred)
+
+Investigator Interpretation:
+The note indicates that Elena planned to meet an unidentified individual referred to as R at the old station cafe. She intended to bring a blue folder and inform Sofia after obtaining additional information. The purpose of the meeting and the contents of the folder remain unknown.
+
+Follow-up Actions:
+- Examine MESSAGES.TXT for references to R and Sofia.
+- Review HISTORY.DB for searches related to the meeting location.
+- Examine RECEIPT.TXT and STATION.JPG for corroborating evidence.
+- Investigate the significance of the blue folder.
+- Determine whether the planned meeting occurred.
+
+Evidence Screenshot: 08-notes-content.png
+
+**Finding 002 – Communications Analysis**
+
+Source File: MESSAGES.TXT
+
+File Path: /MESSAGES.TXT
+
+Modified Timestamp: 2026-11-07 17:22:00 CST
+
+Evidence Date: November 7, 2026
+
+Observed Content:
+- 16:42 – Sofia asks Elena about dinner tomorrow.
+- 16:45 – Elena states that she expects to return home tonight.
+- 17:08 – R informs Elena that the cafe entrance is closed and redirects her to the north entrance.
+- 17:11 – Elena confirms the change and states that she will take the bus.
+- 17:19 – Sofia requests that Elena text her when she gets home.
+
+Investigator Interpretation:
+The communications corroborate the planned meeting referenced in NOTES.TXT. The unidentified individual R changed the meeting location to the north entrance. Elena acknowledged the change and indicated that she planned to travel by bus.
+
+Elena's statement that she expected to return home that evening suggests that she was not planning an extended absence. However, her actual movements and return status remain unconfirmed.
+
+Relevant Persons:
+- Elena Morales
+- Sofia
+- R (identity unknown)
+
+Investigative Leads:
+- Identify R.
+- Determine the location of the north entrance.
+- Examine transportation-related evidence.
+- Determine whether Elena reached the meeting location.
+- Establish whether Elena contacted Sofia afterward.
+
+Evidence Screenshot: 09-messages-content.png
+
+Status: Requires further investigation.
+
+**Finding 003 – Transportation Evidence**
+
+Source File: RECEIPT.TXT
+
+File Path: /RECEIPT.TXT
+
+Modified Timestamp: 2026-11-07 17:35:00 CST
+
+Observed Content:
+- Transit Provider: Oak Street Transit
+- Transaction Date: November 7, 2026
+- Transaction Time: 17:34 CST
+- Ticket Type: Single ride
+- Route: 12
+- Payment Method: Cash
+
+Investigator Interpretation:
+A simulated transit receipt was discovered within the forensic disk image. The receipt documents a single-ride purchase for Route 12 at 17:34 CST.
+
+This transaction occurred 23 minutes after Elena stated in MESSAGES.TXT that she planned to take the bus. The receipt is consistent with her stated transportation plans and may help reconstruct her movements before the scheduled meeting.
+
+The receipt does not independently establish Elena's identity as the purchaser, boarding location, destination, or actual travel.
+
+Follow-up Actions:
+- Investigate Route 12 and its potential connection to the old station cafe.
+- Examine STATION.JPG for location and timestamp information.
+- Compare receipt information with other recovered evidence.
+- Determine whether Elena reached the north entrance.
+
+Evidence Screenshot: 10-receipt-content.png
+
+Status: Requires further corroboration.
+
+**Finding 004 – Photograph and EXIF Metadata Analysis**
+
+Source File: STATION.JPG
+
+File Path: /STATION.JPG
+
+Modified Timestamp: 2026-11-07 17:41:00 CST
+
+Observed Visual Content:
+The image depicts a building facade with a dark entrance and a sign reading "OLD STATION - NORTH."
+
+EXIF Metadata:
+- Device Make: Training Camera
+- Device Model: Synthetic Model
+- Autopsy Score: Not Notable
+- GPS Coordinates: Not observed in displayed metadata
+- Capture Timestamp: Not established
+
+Investigator Interpretation:
+The photograph visually corroborates the north entrance referenced by R in MESSAGES.TXT. The file modification timestamp occurs seven minutes after the transit receipt timestamp.
+
+The photograph provides a potential connection between Elena's planned meeting location and the transportation evidence.
+
+Limitations:
+The image does not independently establish who captured the photograph, when it was originally taken, or whether Elena was physically present at the location. The file modification timestamp is not necessarily the photograph's capture time.
+
+Follow-up Actions:
+- Examine HISTORY.DB for searches related to the old station.
+- Investigate deleted files for additional meeting details.
+- Correlate photograph information with other recovered artifacts.
+
+Evidence Screenshots:
+- 11-station-photo.png
+- 12-station-exif.png
+
+Status: Relevant evidence identified; further corroboration required.
+
+**Finding 005 – Browser History Analysis**
+
+Source File: HISTORY.DB
+
+File Path: /HISTORY.DB
+
+Modified Timestamp: 2026-11-07 17:18:00 CST
+
+Artifact Type: SQLite browser history database
+
+Observed Records:
+- 2026-11-07 16:50 CST – Old station cafe
+- 2026-11-07 17:02 CST – Route 12 schedule
+- 2026-11-07 17:14 CST – Station north entrance
+- 2026-11-07 17:17 CST – Weather
+
+Timestamp Analysis:
+The last_visit_time values were interpreted as Chromium timestamps, representing microseconds since January 1, 1601 UTC. Values were converted to Central Standard Time (UTC-6).
+
+Additional Observations:
+- Each record has a visit count of 1.
+- All records have a typed count of 0.
+- All records have a hidden value of 0.
+
+Investigator Interpretation:
+The browsing history supports the planned meeting and transportation arrangements identified in previous findings.
+
+The Route 12 schedule was accessed before the transit receipt timestamp. The station north entrance search occurred six minutes after R instructed Elena to meet at that entrance.
+
+These records are consistent with preparations for the scheduled meeting.
+
+Limitations:
+Browser history does not independently establish who performed the searches or whether Elena physically traveled to the locations. The URLs use synthetic example domains for this training investigation.
+
+Evidence Screenshot: 13-browser-history.png
+
+Status: Corroborating evidence identified.
+
+**Finding 006 – Deleted File Recovery**
+
+Source File: _RAFT.TXT
+
+File Path: /_RAFT.TXT
+
+Suspected Original Filename: DRAFT.TXT (unconfirmed)
+
+Modified Timestamp: 2026-11-07 17:26:00 CST
+
+Recovery Method: Deleted file examination using Autopsy 4.23.1.
+
+Observed Content:
+
+"Sofia, if I do not call tonight, check the blue folder in my desk. R said the meeting was about the missing records. I am not sure I trust that explanation."
+
+Investigator Interpretation:
+
+The recovered deleted file contains a message apparently intended for Sofia. Elena expresses distrust regarding R's explanation for the planned meeting and identifies missing records as the stated subject of the meeting.
+
+Elena also instructs Sofia to check a blue folder in her desk if she does not call that evening.
+
+This evidence suggests that Elena had concerns before the scheduled meeting and considered the possibility that she might not contact Sofia afterward.
+
+Correlation with Previous Findings:
+- NOTES.TXT identifies the planned meeting with R and the blue folder.
+- MESSAGES.TXT confirms communication with R and the change of meeting location.
+- HISTORY.DB supports preparations for the meeting and transportation.
+- The recovered deleted file introduces missing records as a potential motive for the meeting.
+
+Discrepancies:
+NOTES.TXT indicates Elena intended to bring the blue folder, while the deleted file directs Sofia to check the folder in Elena's desk. The folder's actual location remains unconfirmed.
+
+Limitations:
+The recovered content does not establish who deleted the file, why it was deleted, whether Sofia received the message, or whether R was involved in Elena's disappearance.
+
+Follow-up Actions:
+- Identify R.
+- Determine the nature of the missing records.
+- Locate and examine the blue folder.
+- Determine whether Sofia received any subsequent communication.
+- Examine carved files and unallocated space for additional evidence.
+
+Evidence Screenshot: 14-deleted-draft.png
+
+Status: Significant investigative lead identified.
+
+**Finding: Carved File Recovery**
+
+Autopsy's PhotoRec Carver module recovered one file, located under $CarvedFiles.
+
+Examination of the recovered file revealed text matching the contents of the previously identified deleted file, _RAFT.TXT.
+
+The recovered message references Sofia, the blue folder, R, and missing records. It also expresses distrust regarding the purpose of the planned meeting.
+
+**Significance:** File carving successfully recovered readable content consistent with the deleted draft, demonstrating an alternative method of recovering evidence.
+
+**Limitation:** Matching text does not establish that the recovered files are byte-for-byte identical. Additional hash comparison is required to confirm this.
+
+**Finding: Carved File Metadata Examination**
+
+Recovered file: f0000000.txt
+
+Source: E001-elena-working.dd/$CarvedFiles/1/
+
+Recovery method: PhotoRec file carving
+
+File size: 158 bytes
+
+The recovered text file was identified as unallocated. Original filesystem timestamps were unavailable, and MD5 and SHA-256 hashes had not been calculated by Autopsy.
+
+The recovered content matches the visible text of the previously examined deleted draft, _RAFT.TXT.
+
+**Significance:** This finding demonstrates successful recovery of readable evidence from unallocated space.
+
+**Limitation:** The original filename and timestamps cannot be established from the carved file metadata alone. Hash comparison is required to determine whether both recovered files are byte-for-byte identical.
+
+**Finding: Recovered File Hash Comparison**
+
+Case ID: DF-2026-001
+Evidence ID: E001
+Examiner: insomniadotcom
+Tool: Windows PowerShell
+
+The deleted file _RAFT.TXT and the PhotoRec-carved file f0000000.txt were exported from Autopsy for forensic comparison.
+
+Both files measured 158 bytes.
+
+SHA-256:
+9E255719ACF40387589B29EC9F37B455A901DA921B3679326B65B7DAC0FCBBA0
+
+The SHA-256 hashes were calculated independently using PowerShell's Get-FileHash command. Comparison returned True.
+
+**Conclusion:** Both recovered files have matching SHA-256 hashes and identical sizes, providing strong evidence that their contents are byte-for-byte identical.
+
+**Significance:** The deleted draft was successfully recovered through both filesystem examination and file carving. This demonstrates successful recovery and verification of deleted evidence.
+
+**Limitation:** Matching hashes do not establish who deleted the original file or when the deletion occurred. The carved file does not retain its original filesystem timestamps.
+
+### Timeline Analysis — Autopsy
+
+Case ID: DF-2026-001
+Evidence ID: E001
+Tool: Autopsy 4.23.1
+Time Zone: CST
+
+Examined filesystem timestamps using Autopsy's Timeline Details and List views. Identified six relevant files associated with the period of November 6–7, 2026.
+
+Correlated filesystem timestamps with recovered notes, exported messages, transit receipt, browser history, station photograph, and deleted draft.
+
+The evidence indicates that Elena planned to meet an individual identified as R at the old station at 18:30 on November 7, 2026. Messages indicate that the meeting location was changed to the north entrance.
+
+The recovered deleted draft expresses concern regarding missing records and references a blue folder located in Elena's desk.
+
+The deleted file and carved copy were previously verified to have identical SHA-256 hashes.
+
+Limitations:
+- Filesystem timestamps do not independently establish user activity.
+- FAT access timestamps have limited time precision.
+- The deletion time of the draft remains unknown.
+- Elena's arrival at the station and attendance at the meeting have not been confirmed.
+
+Screenshot references:
+16-autopsy-timeline-details.png
+17-autopsy-timeline-list.png
+
+### Browser History Analysis
+
+Case ID: DF-2026-001
+Evidence ID: E001
+Source File: HISTORY.DB
+Tools: DB Browser for SQLite, Windows PowerShell
+
+Examined the browser history database and identified four URL records. Converted Chromium timestamps from microseconds since January 1, 1601 (UTC), to Central Standard Time using PowerShell.
+
+**Recovered Browser History — November 7, 2026 (CST)**
+
+- 16:50:00 — Old station cafe
+- 17:02:00 — Route 12 schedule
+- 17:14:00 — Station north entrance
+- 17:17:00 — Weather
+
+**Analysis:**
+
+The browser history is consistent with preparations for the planned meeting at the old station.
+
+At 17:08, R sent a message changing the meeting location to the north entrance. At 17:14, the browser history recorded a search for the station north entrance, six minutes after the message.
+
+The Route 12 schedule visit is consistent with Elena's subsequent message stating that she would take the bus and the recovered transit receipt dated 17:34.
+
+**Limitations:**
+
+Browser history establishes recorded browsing activity but does not independently establish the identity of the person performing the searches or their physical location.
+
+**Screenshot Reference:**
+18-browser-history-timestamp-conversion.png
+
+# Final Investigative Findings
+
+**Case ID:** DF-2026-001
+**Case Type:** Simulated Missing Person Investigation
+**Subject:** Elena
+**Evidence ID:** E001
+**Data Source:** E001-elena-working.dd
+
+## Examination Summary
+
+A forensic examination of the supplied synthetic disk image was conducted using Autopsy 4.23.1, DB Browser for SQLite, and Windows PowerShell.
+
+The examination included evidence integrity verification, filesystem analysis, metadata examination, browser history analysis, deleted file recovery, file carving, hash comparison, and timeline reconstruction.
+
+## Findings
+
+1. Recovered notes and messages indicate that Elena planned to meet an individual identified as R at 18:30 on November 7, 2026, at the old station.
+
+2. At 17:08 CST, R communicated a change of meeting location from the café entrance to the north entrance.
+
+3. Browser history recorded a search for the station north entrance at 17:14 CST, six minutes after the message changing the meeting location.
+
+4. Browser history, exported messages, and a simulated transit receipt are consistent with preparations to travel using Route 12.
+
+5. A deleted text file, _RAFT.TXT, was recovered through filesystem examination. Its contents indicate that Elena expressed concern about R's explanation regarding missing records and instructed Sofia to examine a blue folder if Elena did not call that night.
+
+6. A matching text file, f0000000.txt, was recovered through file carving. Both exported files were 158 bytes and produced identical SHA-256 hashes.
+
+7. STATION.JPG depicts the old station's north entrance. Its filesystem creation and modification timestamps were recorded as November 7, 2026, at 17:41 CST.
+
+## Conclusion
+
+The examined digital evidence supports the interpretation that Elena was preparing to attend a planned meeting with an individual identified as R at the old station's north entrance on November 7, 2026.
+
+The recovered deleted draft identifies potential investigative leads involving missing records, a blue folder, and Elena's concerns regarding R.
+
+The available evidence does not establish whether Elena arrived at the station, attended the meeting, or encountered criminal activity.
+
+## Limitations
+
+- The evidence is synthetic and was examined as part of a digital forensics training exercise.
+- Browser history does not independently establish the identity of the user.
+- Filesystem timestamps do not necessarily establish the time of the underlying real-world activity.
+- FAT access timestamps have limited precision.
+- The identity of R and the deletion time of the recovered draft remain unknown.
+- The recovered photograph does not independently establish Elena's physical location.
+- No conclusion regarding criminal responsibility can be established from the supplied evidence.
+
+## Recommendations
+
+Further investigation should focus on identifying R, locating the blue folder, examining the missing records, obtaining relevant surveillance footage, and reviewing additional communication and location evidence.
+
+**Examination Status:** Analysis completed. Final report preparation pending.
