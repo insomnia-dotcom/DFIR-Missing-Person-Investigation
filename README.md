@@ -1,145 +1,150 @@
-# Digital Forensics: Missing Person Investigation
+# Digital Forensics – Missing Person Investigation
 
-## Case DF-2026-001 — Elena
+## Project Overview
 
-### Project Overview
+This project is a simulated missing person investigation that I completed as part of my hands-on digital forensics training.
 
-I created this project to gain hands-on experience with digital forensic investigations and better understand how digital evidence can help reconstruct events in a missing person case.
+The goal was to examine a forensic disk image associated with a fictional missing person named Elena, recover relevant digital evidence, and reconstruct a timeline of activity leading up to her planned meeting on November 7, 2026.
 
-The investigation focuses on a simulated missing person named Elena. Using a synthetic disk image, I examined files, recovered deleted evidence, analyzed browser activity, and reconstructed a timeline of events leading up to her planned meeting with an unidentified individual.
+I wanted to practice the investigative process from beginning to end, including evidence preservation, forensic examination, deleted file recovery, timeline analysis, and report writing.
 
-This project is a training exercise. All evidence and individuals involved in the case are fictional.
+## Case Information
 
-### Tools Used
+| Field | Details |
+|---|---|
+| Case ID | DF-2026-001 |
+| Case Type | Simulated Missing Person Investigation |
+| Subject | Elena |
+| Evidence ID | E001 |
+| Evidence Type | Forensic Disk Image |
+| Examiner | insomnia-dotcom |
+| Examination Date | November 15, 2026 |
 
-- Autopsy 4.23.1 — Filesystem examination, metadata analysis, deleted file recovery, file carving, and timeline reconstruction.
-- FTK Imager — Forensic imaging tool setup.
-- DB Browser for SQLite — Manual examination of browser history.
-- Windows PowerShell — SHA-256 hash verification and browser timestamp conversion.
+## Tools Used
 
-### Investigation Objectives
+- **Autopsy 4.23.1** – Filesystem examination, deleted file recovery, file carving, metadata analysis, timeline reconstruction, and reporting.
+- **DB Browser for SQLite** – Examination of browser history records.
+- **Windows PowerShell** – SHA-256 hash verification, file comparison, and timestamp conversion.
+- **FTK Imager** – Forensic workstation preparation.
+- **ExifTool** – Metadata examination.
 
-- Preserve the original evidence and verify the integrity of the working copy.
-- Examine files and identify information relevant to Elena's disappearance.
-- Recover deleted data and examine unallocated space.
-- Analyze browser history, messages, and image metadata.
-- Reconstruct a timeline of relevant events.
-- Document findings and identify potential investigative leads.
+## Investigation Process
 
-### Investigation Process
+### 1. Evidence Preservation and Verification
 
-#### 1. Evidence Preservation
+Before examining the evidence, I calculated the SHA-256 hash of the original forensic image and compared it with the supplied reference hash.
 
-I organized the case into separate folders for original evidence, working copies, exports, screenshots, notes, and reports.
+I then created a working copy and independently verified its hash against the original evidence. Both verification checks returned True.
 
-Before examining the disk image, I calculated SHA-256 hashes to verify evidence integrity and used a working copy for analysis.
+The original evidence was stored separately to preserve its integrity throughout the investigation.
 
-#### 2. Filesystem Examination
+### 2. Filesystem Examination
 
-I imported the working disk image into Autopsy and examined the available files.
+I imported the working copy into Autopsy and examined the filesystem for potentially relevant evidence.
 
-The evidence included:
+The examination identified several files of interest:
 
 - NOTES.TXT
 - MESSAGES.TXT
 - HISTORY.DB
 - RECEIPT.TXT
 - STATION.JPG
-- A deleted text file identified as _RAFT.TXT
+- _RAFT.TXT (deleted file)
 
-These files provided information about Elena's planned meeting, travel arrangements, and concerns about missing records.
+These files provided information about Elena's planned meeting, communications, possible travel arrangements, and concerns about missing records.
 
-#### 3. Deleted File Recovery
+### 3. Browser History Analysis
 
-One of the most interesting parts of the investigation was recovering a deleted text file containing a message intended for Sofia.
+I examined HISTORY.DB using DB Browser for SQLite and reviewed the recorded browsing activity.
 
-The message mentioned a blue folder, missing records, and Elena's concerns about an individual identified as R.
+I also used PowerShell to convert browser timestamps into Central Standard Time so that the browsing activity could be compared with other evidence.
 
-I also recovered a matching file through file carving. Both exported files were 158 bytes in size.
+The browser history included activity related to transportation and the station's north entrance.
 
-Using PowerShell, I calculated their SHA-256 hashes and confirmed that they matched. This demonstrated that the deleted file and the carved file contained identical data.
+### 4. Deleted File Recovery and File Carving
 
-#### 4. Browser History Analysis
+One of the most important findings was a deleted text file identified as _RAFT.TXT.
 
-I examined HISTORY.DB using DB Browser for SQLite and identified four relevant browser history entries.
+The recovered message indicated that Elena was concerned about an upcoming meeting and instructed Sofia to check a blue folder in her desk if she did not call that night.
 
-The database contained searches related to the old station café, Route 12, the station's north entrance, and the weather.
+A matching text file, f0000000.txt, was also recovered through file carving.
 
-I converted the browser timestamps into Central Standard Time using PowerShell and compared them with the messages and filesystem timestamps.
+Both recovered files were exported and independently hashed using SHA-256.
 
-#### 5. Timeline Reconstruction
+**Results:**
 
-I used Autopsy's timeline feature and the contents of the recovered evidence to reconstruct the following events.
+- Deleted file size: 158 bytes
+- Carved file size: 158 bytes
+- SHA-256 comparison: Match
 
-| Date and Time (CST) | Event |
-|---|---|
-| Nov 6, 2026 — 21:12 | Notes file creation/modification timestamp |
-| Nov 7 — 16:42 | Sofia asks Elena about dinner |
-| Nov 7 — 16:50 | Browser history records a search for the old station café |
-| Nov 7 — 17:02 | Route 12 schedule accessed |
-| Nov 7 — 17:08 | R changes the meeting location to the north entrance |
-| Nov 7 — 17:11 | Elena states that she will take the bus |
-| Nov 7 — 17:14 | Browser history records a search for the station's north entrance |
-| Nov 7 — 17:19 | Sofia asks Elena to text when she gets home |
-| Nov 7 — 17:26 | Deleted draft creation/modification timestamp |
-| Nov 7 — 17:34 | Simulated Route 12 transit receipt |
-| Nov 7 — 17:41 | Station image creation/modification timestamp |
-| Nov 7 — 18:30 | Planned meeting time |
+The matching hashes confirmed that both exported files contained identical data.
 
-### Key Findings
+### 5. Metadata Examination
 
-The evidence suggests that Elena was preparing to meet an individual identified as R at the old station.
+I examined the available metadata associated with STATION.JPG and reviewed its filesystem timestamps.
 
-The messages indicate that the meeting location changed shortly before the planned meeting. Browser activity and the simulated transit receipt are consistent with preparations to travel using Route 12.
+The image depicted the station's north entrance. However, the available metadata did not independently establish when the photograph was taken or Elena's physical location.
 
-The recovered deleted draft provided additional investigative leads involving a blue folder and missing records. It also indicated that Elena had concerns about the explanation R provided for the meeting.
+### 6. Timeline Reconstruction
 
-### Conclusion
+I used Autopsy's timeline feature and converted browser history timestamps to reconstruct relevant activity.
 
-Based on the evidence I examined, I was able to reconstruct several events leading up to Elena's planned meeting and identify information that could support further investigation.
+| Date | Time (CST) | Event |
+|---|---|---|
+| Nov. 6, 2026 | 21:12 | NOTES.TXT creation and modification timestamps |
+| Nov. 7, 2026 | 17:08 | Message changing the meeting location |
+| Nov. 7, 2026 | 17:14 | Browser search related to the station's north entrance |
+| Nov. 7, 2026 | 17:18 | HISTORY.DB creation and modification timestamps |
+| Nov. 7, 2026 | 17:22 | MESSAGES.TXT creation and modification timestamps |
+| Nov. 7, 2026 | 17:26 | Deleted draft creation and modification timestamps |
+| Nov. 7, 2026 | 17:35 | RECEIPT.TXT creation and modification timestamps |
+| Nov. 7, 2026 | 17:41 | STATION.JPG creation and modification timestamps |
+| Nov. 7, 2026 | 18:30 | Scheduled meeting with R |
 
-However, the available evidence does not establish whether Elena arrived at the station, attended the meeting, or encountered criminal activity.
+Filesystem timestamps represent recorded file activity and do not necessarily establish when the underlying real-world events occurred.
 
-Further investigation would focus on identifying R, locating the blue folder, examining the missing records, and obtaining relevant surveillance footage.
+## Key Findings
 
-### Limitations
+- Elena planned to meet an individual identified as R at the old station.
+- The meeting location was changed from the café entrance to the north entrance.
+- Browser history and other recovered evidence were consistent with preparations to travel using Route 12.
+- A deleted draft revealed Elena's concerns about the meeting and referenced missing records and a blue folder.
+- The deleted draft and carved file were verified as identical using SHA-256.
+- The available evidence did not establish whether Elena arrived at the station or attended the meeting.
 
-- The evidence is synthetic and was created for training purposes.
-- Browser history does not independently establish who performed each search.
-- Filesystem timestamps do not necessarily establish when a real-world event occurred.
-- The station image does not independently establish Elena's physical location.
-- The identity of R and the time of the draft's deletion remain unknown.
+## Investigation Documentation
 
-### Skills Demonstrated
+The repository includes documentation of the examination process and supporting findings.
 
-- Digital evidence handling
+- [Investigation Screenshots](screenshots/)
+- [Forensic Reports](reports/)
+- [Investigation Documentation](documentation/)
+
+These folders contain screenshots, investigation notes, evidence verification records, and forensic reports.
+
+## Skills Demonstrated
+
+- Digital evidence preservation
 - SHA-256 integrity verification
 - Filesystem analysis
 - Deleted file recovery
 - File carving
 - SQLite database examination
-- Browser timestamp conversion
-- EXIF metadata analysis
+- Browser history analysis
+- Metadata examination
+- Timestamp conversion
 - Forensic timeline reconstruction
-- Investigative documentation and reporting
+- Investigative documentation
+- Forensic report writing
 
-### What I Learned
+## Conclusion
 
-This project helped me understand how different pieces of digital evidence can be connected to build a timeline.
+This investigation gave me practical experience working through a digital forensics case from evidence verification to final reporting.
 
-Recovering the deleted draft and verifying it against the carved file was particularly valuable because it showed me the importance of validating recovered evidence rather than relying on a single tool or result.
+One of the most valuable parts of the project was recovering a deleted file through two different methods and using SHA-256 hashes to verify that the recovered contents were identical.
 
-I also learned how important it is to separate confirmed findings from assumptions when writing a forensic report.
+The project also reinforced the importance of separating verified findings from assumptions. While the evidence supported the interpretation that Elena was preparing to attend a meeting, it was not sufficient to determine what happened to her afterward.
 
-This investigation is part of my ongoing development in digital forensics and cybersecurity.
+## Disclaimer
 
----
-
-**Examiner:** insomnia-dotcom
-
-**Case ID:** DF-2026-001
-
-**Status:** Investigation completed
-
-**Project Type:** Digital Forensics Training Lab
-
+This project is a fictional digital forensics training exercise. All individuals, events, and evidence are synthetic and intended for educational purposes only.
